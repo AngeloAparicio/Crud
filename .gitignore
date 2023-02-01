@@ -1,0 +1,72 @@
+import java.util.*;
+class user{
+    String firstname,middlename,lastname,sex;
+    int age;
+    public user(){
+
+    }
+    public user(String firstname, String middlename, String lastname, int age, String sex){
+        this.age = age;
+        this.firstname = firstname;
+        this.middlename = middlename;
+        this.lastname = lastname;
+        this.sex = sex;
+    }
+
+    public String getFirstname(){
+        return firstname;
+    }
+
+    public String getMiddlename(){
+        return middlename;
+    }
+
+    public String getLastname(){
+        return lastname;
+    }
+
+    public String getSex(){
+        return sex;
+    }
+
+    public int getAge(){
+        return age;
+    }
+}
+public class fscrud {
+    ArrayList array = new ArrayList<user>();
+    static Scanner scan = new Scanner(System.in);
+    int i = 0;
+
+    public void add(String firstname, String middlename, String lastname, int age, String sex){
+        array.add(new user(firstname,middlename,lastname,age,sex));
+        i++;
+    }
+
+    public void get(){
+        for(int j = 0 ; j < array.size() ; j++){
+            user use = (user) array.get(j);
+            System.out.println("firstname: "+use.getFirstname());
+            System.out.println("middlename: "+use.getMiddlename());
+            System.out.println("lastname :"+use.getLastname());
+            System.out.println("age:"+use.getAge());
+            System.out.println("sex:"+use.getSex());
+        }
+    }
+
+    public static void main(String[] args){
+        System.out.println("enter your first name: ");
+        String firstname = scan.next();
+        System.out.println("enter your middle name: ");
+        String middlename = scan.next();
+        System.out.println("enter your last name: ");
+        String lastname = scan.next();
+        System.out.println("enter your age: ");
+        int age = scan.nextInt();
+        System.out.println("enter your sex: ");
+        String sex = scan.next();
+        fscrud fsc = new fscrud();
+        fsc.add(firstname, middlename, lastname, age, sex);
+        fsc.get();
+    }
+}
